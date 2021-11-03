@@ -1,0 +1,38 @@
+1. Create table
+-> done createTables.txt
+
+2. Insert data
+-> done in insertData.txt
+
+3. number of problems solved in codekata by combining with the users
+=>
+select Name, Count(DISTINCT(Codekata.id))
+from Students inner join Codekata 
+on Students.id=Codekata.student_id
+group by Codekata.student_id;
+
+4. no of company drives attended by student
+=>
+select Name, Count(DISTINCT(company_drives.id))
+from Students inner join company_drives 
+on Students.id=company_drives.student_id
+group by company_drives.student_id;
+
+5. combine and display student_activated_courses and Courses for a specific user grouping them based on course
+=>
+select Courses.Name, Count(DISTINCT(student_activated_courses.id))
+from Courses inner join student_activated_courses 
+on Courses.id=student_activated_courses.course_id
+group by Courses.id;
+
+6. list all Mentors
+=>
+select * from mentors;
+
+7. list number of students that are assigned to a mentor
+=> 
+Select Mentors.Name, Count(students.id)
+from Students inner join Mentors
+on Students.mentor_id=Mentors.id
+group by Mentors.id;
+

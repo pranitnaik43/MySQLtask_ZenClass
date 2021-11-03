@@ -1,0 +1,118 @@
+
+INSERT INTO Mentors VALUES 
+("1", "m1@gmail.com", "m1", "1234"),
+("2", "m2@gmail.com", "m2", "1235"),
+("3", "m3@gmail.com", "m3", "1236"),
+("4", "m4@gmail.com", "m4", "1237"),
+("5", "m5@gmail.com", "m5", "1238");
+
+INSERT INTO Students VALUES 
+("s1", "s1@gmail.com", "s1", "1234", "B1", "", "", "1"),
+("s2", "s2@gmail.com", "s2", "1235", "B1", "", "", "1"),
+("s3", "s3@gmail.com", "s3", "1236", "B1", "", "", "1"),
+("s4", "s4@gmail.com", "s4", "1237", "B1", "", "", "1"),
+("s5", "s5@gmail.com", "s5", "1238", "B1", "", "", "1"),
+("s6", "s6@gmail.com", "s6", "1234", "B2", "", "", "2"),
+("s7", "s7@gmail.com", "s7", "1235", "B2", "", "", "2"),
+("s8", "s8@gmail.com", "s8", "1236", "B2", "", "", "2"),
+("s9", "s9@gmail.com", "s9", "1237", "B3", "", "", "3"),
+("s10", "s10@gmail.com", "s10", "1238", "B3", "", "", "3");
+
+INSERT INTO Codekata (id, student_id, question_id, result, language) VALUES 
+("1", "s1", "1", "passed", "JavaScript"),
+("2", "s1", "2", "passed", "JavaScript"),
+("3", "s1", "3", "passed", "JavaScript"),
+("4", "s1", "4", "failed", "JavaScript"),
+("5", "s1", "5", "passed", "JavaScript"),
+("6", "s1", "6", "passed", "JavaScript"),
+("11", "s2", "1", "passed", "JavaScript"),
+("12", "s2", "2", "passed", "JavaScript"),
+("13", "s2", "3", "passed", "JavaScript"),
+("14", "s2", "4", "failed", "JavaScript"),
+("15", "s2", "5", "passed", "JavaScript"),
+("16", "s2", "6", "passed", "JavaScript"),
+("31", "s3", "1", "passed", "JavaScript"),
+("32", "s3", "2", "failed", "JavaScript"),
+("33", "s3", "3", "passed", "JavaScript"),
+("34", "s3", "4", "passed", "JavaScript"),
+("35", "s3", "5", "passed", "JavaScript"),
+("36", "s3", "6", "passed", "JavaScript");
+
+
+INSERT INTO Topics (id, Name, mentor_id, batch_id, date) VALUES 
+("1", "T1", "1", "B1", '1998-01-23 12:45:56'),
+("11", "T11", "1", "B1", '2021-01-24 12:45:56'),
+("12", "T12", "1", "B1", '2021-01-24 12:45:56'),
+("13", "T13", "1", "B1", '2021-01-24 12:45:56'),
+("14", "T14", "1", "B1", '2021-01-25 12:45:56'),
+("15", "T15", "2", "B2", '2021-01-25 12:45:56'),
+("16", "T16", "2", "B2", '2021-01-25 12:45:56'),
+("17", "T17", "2", "B2", '2021-01-26 12:45:56'),
+("18", "T18", "3", "B3", '2021-01-27 12:45:56'),
+("19", "T19", "3", "B3", '2021-01-27 12:45:56'),
+("20", "T20", "3", "B3", '2021-01-27 12:45:56');
+
+
+INSERT INTO Attendance (id, student_id, topic_id, status) VALUES 
+("1", "s1", "1", "present"),
+("11", "s1", "1", "present"),
+("12", "s2", "11", "absent"),
+("13", "s3", "11", "present"),
+("14", "s4", "11", "present"),
+("15", "s5", "12", "present"),
+("16", "s6", "12", "absent"),
+("17", "s7", "12", "present"),
+("18", "s8", "13", "present"),
+("19", "s9", "13", "absent"),
+("20", "s9", "13", "present");
+
+
+INSERT INTO Tasks (id, student_id, topic_id, Description, status) VALUES
+("1", "s1", "1", "Task", "submitted"),
+("11", "s1", "1", "Task", "submitted"),
+("12", "s2", "11", "Task", "pending"),
+("13", "s3", "11", "Task", "submitted"),
+("14", "s4", "11", "Task", "submitted"),
+("15", "s5", "12", "Task", "submitted"),
+("16", "s6", "12", "Task", "pending"),
+("17", "s7", "12", "Task", "submitted"),
+("18", "s8", "13", "Task", "submitted"),
+("19", "s9", "13", "Task", "pending"),
+("20", "s9", "13", "Task", "submitted");
+
+INSERT INTO company_drives (id, student_id, company_id, status) VALUES
+("1", "s1", "1", "selected"),
+("11", "s1", "1", "selected"),
+("12", "s2", "11", "pending"),
+("13", "s3", "11", "selected"),
+("14", "s4", "11", "rejected"),
+("15", "s5", "12", "selected"),
+("16", "s6", "12", "pending"),
+("17", "s7", "12", "selected"),
+("18", "s8", "13", "selected"),
+("19", "s9", "13", "pending"),
+("20", "s9", "13", "selected");
+
+INSERT INTO Courses (id, Name, Description, hours, price) VALUES
+("11", "c11", "c11", 2, 3000),
+("12", "c12", "c12", 2, 3000),
+("13", "c13", "c13", 2, 5000),
+("14", "c14", "c14", 2, 3000),
+("15", "c15", "c15", 2, 3000),
+("16", "c16", "c16", 2, 3000),
+("17", "c17", "c17", 2, 1000),
+("18", "c18", "c18", 2, 3000),
+("19", "c19", "c19", 2, 3000);
+
+INSERT INTO student_activated_courses (id, student_id, course_id) VALUES
+("1", "s1", "11"),
+("11", "s1", "11"),
+("12", "s2", "11"),
+("13", "s3", "11"),
+("14", "s4", "11"),
+("15", "s5", "12"),
+("16", "s6", "12"),
+("17", "s7", "12"),
+("18", "s8", "13"),
+("19", "s9", "13"),
+("20", "s9", "13");

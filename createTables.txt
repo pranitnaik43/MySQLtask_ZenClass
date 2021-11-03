@@ -1,0 +1,107 @@
+// CREATE DATABASE zen_class;
+
+USE zen_class;
+
+CREATE TABLE Mentors
+(
+  id VARCHAR(256) NOT NULL,
+  email VARCHAR(256) NOT NULL UNIQUE,
+  Name VARCHAR(256) NOT NULL,
+  Mobile VARCHAR(256),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Students
+(
+  id VARCHAR(256) NOT NULL,
+  email VARCHAR(256) NOT NULL UNIQUE,
+  Name VARCHAR(256) NOT NULL,
+  Mobile VARCHAR(256),
+  batch_id VARCHAR(256),
+  github_link VARCHAR(256),
+  resume_link VARCHAR(256),
+  mentor_id VARCHAR(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (mentor_id) REFERENCES Mentors(id)
+);
+
+CREATE TABLE Topics
+(
+  id VARCHAR(256) NOT NULL,
+  Name VARCHAR(256) NOT NULL,
+  mentor_id VARCHAR(256) NOT NULL,
+  batch_id VARCHAR(256) NOT NULL,
+  date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (mentor_id) REFERENCES Mentors(id)
+);
+
+CREATE TABLE Attendance
+(
+  id VARCHAR(256) NOT NULL,
+  student_id VARCHAR(256) NOT NULL,
+  topic_id VARCHAR(256) NOT NULL,
+  status VARCHAR(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (student_id) REFERENCES Students(id),
+  FOREIGN KEY (topic_id) REFERENCES Topics(id)
+);
+
+CREATE TABLE Codekata
+(
+  id VARCHAR(256) NOT NULL,
+  student_id VARCHAR(256) NOT NULL,
+  question_id VARCHAR(256) NOT NULL,
+  result VARCHAR(256) NOT NULL,
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  language VARCHAR(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (student_id) REFERENCES Students(id)
+);
+
+CREATE TABLE Tasks
+(
+  id VARCHAR(256) NOT NULL,
+  Description VARCHAR(256) NOT NULL,
+  student_id VARCHAR(256) NOT NULL,
+  topic_id VARCHAR(256) NOT NULL,
+  status VARCHAR(256) NOT NULL,
+  github_link VARCHAR(256),
+  hosted_app_link VARCHAR(256),
+  score INT,
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (student_id) REFERENCES Students(id),
+  FOREIGN KEY (topic_id) REFERENCES Topics(id)
+);
+
+CREATE TABLE company_drives
+(
+  id VARCHAR(256) NOT NULL,
+  company_id VARCHAR(256) NOT NULL,
+  student_id VARCHAR(256) NOT NULL,
+  status VARCHAR(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (student_id) REFERENCES Students(id)
+);
+
+CREATE TABLE Courses
+(
+  id VARCHAR(256) NOT NULL,
+  Name VARCHAR(256) NULL,
+  Description VARCHAR(256) NOT NULL,
+  hours INT NOT NULL,
+  price INT NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE student_activated_courses
+(
+  id VARCHAR(256) NOT NULL,
+  student_id VARCHAR(256) NOT NULL,
+  course_id VARCHAR(256) NOT NULL,
+  certificate_link INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (student_id) REFERENCES Students(id),
+  FOREIGN KEY (course_id) REFERENCES Courses(id)
+);
